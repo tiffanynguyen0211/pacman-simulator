@@ -1,43 +1,78 @@
 {
-  "name": "pacman-react",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "pacman-react",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@types/jest": "^26.0.15",
+        "@types/node": "^12.0.0",
+        "@types/react": "^17.0.0",
+        "@types/react-dom": "^17.0.0",
+        "axe-core": "^4.3.5",
+        "jsdom": "^18.1.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-scripts": "4.0.3",
+        "sass": "^1.32.12",
+        "typescript": "^4.1.2",
+        "web-vitals": "^1.0.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "typecheck": "tsc --skipLibCheck",
+        "stylelint:ci": "stylelint \"./**/*.{css,scss}\"",
+        "stylelint:fix": "stylelint \"./**/*.{css,scss}\" --q --fix",
+        "eslint:ci": "eslint . --ext .jsx,.js,.ts,.tsx --quiet --ignore-path ./.gitignore",
+        "eslint:fix": "eslint . --ext .jsx,.js,.ts,.tsx --quiet --ignore-path ./.eslintignore --fix",
+        "prettier:fix": "prettier --loglevel warn \"./**/*.{md,json}\" --write",
+        "prettier:ci": "prettier --loglevel warn \"./**/*.{md,json}\"",
+        "lint": "yarn prettier:fix && yarn eslint:fix && yarn stylelint:fix",
+        "lint:ci": "yarn prettier:ci && yarn eslint:ci && yarn stylelint:ci"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@types/enzyme": "^3.10.10",
+        "@types/jsdom": "^16.2.13",
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.0.0",
+        "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
+        "classnames": "^2.3.1",
+        "enzyme": "^3.11.0",
+        "enzyme-to-json": "^3.6.2",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-extra-rules": "^0.0.0-development",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-jest": "^25.2.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.26.1",
+        "eslint-plugin-react-hooks": "^4.2.1-alpha-255221c86-20211103",
+        "eslint-plugin-simple-import-sort": "^7.0.0",
+        "jest-environment-jsdom": "^27.3.1",
+        "prettier": "^2.4.1",
+        "prettier-stylelint": "^0.4.2",
+        "ts-jest": "^27.0.7",
+        "stylelint": "^14.1.0",
+        "stylelint-config-idiomatic-order": "^8.1.0"
+    }
 }

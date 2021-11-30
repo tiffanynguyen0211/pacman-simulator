@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { GameGrid } from './component/GameGrid';
+import { TerminalCommand } from './component/TerminalCommand';
+import { initGrid } from './utils/grid';
+import { Grid, PacManPosition } from './utils/types';
 
-export default App;
+export const App: React.FC = () => {
+    const [currentGrid, setGrid] = useState<Grid | null>(null);
+    const [pacMan, setPacMan] = useState<PacManPosition>({
+        row: 0,
+        col: 0,
+        direction: 'west',
+    });
+
+    useEffect(() => {
+        setGrid(initGrid());
+    }, []);
+
+    return (
+        <div className="container">
+            {currentGrid && (
+                <>
+                    <GameGrid displayGrid={currentGrid} pacMan={pacMan} />
+                    <TerminalCommand pacMan={pacMan} setPacMan={setPacMan} />
+                </>
+            )}
+            {!currentGrid && <p>Setting up...</p>}
+        </div>
+    );
+};

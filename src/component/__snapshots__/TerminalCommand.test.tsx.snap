@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Terminal Command should match snapshot on first render 1`] = `
+<div
+  className="terminal-container"
+>
+  <div
+    className="terminal-result"
+  />
+  <input
+    className="terminal-input"
+    onInput={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Try typing MOVE | RIGHT | LEFT | PLACE (0,0,WEST)..."
+    type="text"
+  />
+</div>
+`;
